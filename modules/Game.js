@@ -8,6 +8,4 @@ export default class Game {
     addPlayer(players) {
         return this.#players.push(...players)
     }
-
-    
 }

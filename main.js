@@ -7,21 +7,21 @@ const formEl = document.querySelector('#form')
 formEl.addEventListener('submit', event => {
     event.preventDefault()
 
-    const firstPlayerInput = document.querySelector('#player1').value;
-   
-    const secondPlayerInput = document.querySelector('#player2').value;
-
-    const firstPlayerfighter = document.querySelector("#firstPlayerFighter option:checked")
-    const secondPlayerfighter = document.querySelector("#secondPlayerFighter option:checked")
-    console.log(firstPlayerfighter.value);
-    console.log(secondPlayerfighter.value);
-
+    const firstPlayerInput = document.querySelector('#player1').value
+    const secondPlayerInput = document.querySelector('#player2').value
+    const firstPlayerFighter = document.querySelector('#firstPlayerFighter option:checked').value
+    const secondPlayerFighter = document.querySelector('#secondPlayerFighter option:checked').value
     
-    const fighter1 = new Sanchai();
-    console.log(fighter1);
+    const player1 = new Player(firstPlayerInput)
+    const player2 = new Player(secondPlayerInput)
 
-    const first = new Player(firstPlayerInput, fighter1);
-    console.log(first);
+    if(firstPlayerFighter === 'pikachu') player1.addFighter(new Pikachu())
+    else if(firstPlayerFighter === 'sanchai') player1.addFighter(new Sanchai())
+    
+    if(secondPlayerFighter === 'pikachu') player2.addFighter(new Pikachu())
+    else if(secondPlayerFighter === 'sanchai') player2.addFighter(new Sanchai())
+
+    console.log(player1, player2);
 
 })
 
