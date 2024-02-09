@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
     <script src="./main.js" type="module"></script>
     <title>Document</title>
 </head>
 <body>
-    <form id="id">
-        <div>
-            <label for="player1">Player 1</label>
-            <input type="text" id="player1" placeholder="Name" required>
-            <select name="fighterClass" class="fighterClass">
-                <option value="">Select an option</option>
-            </select>
+    <main>
+        <div id="mainContainer">
+            <form id="form">
+                <div>
+                    <label for="player1">Player 1</label>
+                    <input type="text" id="player1" placeholder="Name" required>
+                    <select name="fighterClass" class="fighterClass">
+                        <option value="">Select an option</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="player2">Player 2</label>
+                    <input type="text" id="player2" placeholder="Name" required>
+                    <select name="fighterClass" class="fighterClass">
+                        <option value="">Select an option</option>
+                        
+                    </select>
+                </div>
+                <button>FIGHT!!!</button>
+            </form>
+        
+            <div id="gameContainer"></div>
         </div>
-        <div>
-            <label for="player2">Player 2</label>
-            <input type="text" id="player2" placeholder="Name" required>
-            <select name="fighterClass" class="fighterClass">
-                <option value="">Select an option</option>
-                
-            </select>
-        </div>
-        <button>FIGHT!!!</button>
-    </form>
-
-    <div id="gameContainer"></div>
+    </main>
 </body>
 </html>
