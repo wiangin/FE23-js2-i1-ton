@@ -11,3 +11,16 @@ formEl.addEventListener('submit', event => {
 
     formEl.reset()
 })
+
+const sanchai = new Sanchai ()
+console.log(sanchai);
+console.log(sanchai.getName());
+console.log(sanchai.getHealth());
+
+function addNameToSelect(){
+   const name = sanchai.getName();
+   
+   console.log(name);
+}
+
+addNameToSelect()

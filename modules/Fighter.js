@@ -6,4 +6,12 @@ export default class Fighter {
         this.#name = name;
         this.#health = health;
     }
+
+    getName(){
+        return this.#name;
+    }
+
+    getHealth(){
+        return this.#health;
+    }
 }
