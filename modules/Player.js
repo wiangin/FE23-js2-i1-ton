@@ -1,12 +1,12 @@
  export default class Player{
     #name;
     #fighter;
-    constructor(name){
+    constructor(name,fighter){
         this.#name = name;
-        this.#fighter;
+        this.#fighter = fighter;
     }
 
-    addFighter(fighter) {
-        return this.#fighter = fighter;
-    }
+    // addFighter(fighter) {
+    //     return this.#fighter = fighter;
+    // }
 }
