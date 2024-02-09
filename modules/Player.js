@@ -5,4 +5,8 @@
         this.#name = name;
         this.#fighter;
     }
+
+    addFighter(fighter) {
+        return this.#fighter = fighter;
+    }
 }
