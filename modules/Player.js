@@ -6,7 +6,7 @@
         this.#fighter = fighter;
     }
 
-    // addFighter(fighter) {
-    //     return this.#fighter = fighter;
-    // }
+    addFighter(fighter) {
+        return this.#fighter = fighter;
+    }
 }
