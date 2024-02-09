@@ -1,8 +1,9 @@
 import Pikachu from "./modules/Pikachu.js";
 import Sanchai from "./modules/Sanchai.js";
+import Player from "./modules/Player.js";
+import Game from "./modules/Game.js";
 
 const formEl = document.querySelector('#form')
-
 formEl.addEventListener('submit', event => {
     event.preventDefault()
 
@@ -11,16 +12,3 @@ formEl.addEventListener('submit', event => {
 
     formEl.reset()
 })
-
-const sanchai = new Sanchai ()
-console.log(sanchai);
-console.log(sanchai.getName());
-console.log(sanchai.getHealth());
-
-function addNameToSelect(){
-   const name = sanchai.getName();
-   
-   console.log(name);
-}
-
-addNameToSelect()
