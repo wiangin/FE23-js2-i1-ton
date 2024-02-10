@@ -15,13 +15,9 @@ formEl.addEventListener('submit', event => {
     const player1 = new Player(firstPlayerInput)
     const player2 = new Player(secondPlayerInput)
 
-    if(firstPlayerFighter === 'pikachu') player1.addFighter(new Pikachu())
-    else if(firstPlayerFighter === 'sanchai') player1.addFighter(new Sanchai())
-    
-    if(secondPlayerFighter === 'pikachu') player2.addFighter(new Pikachu())
-    else if(secondPlayerFighter === 'sanchai') player2.addFighter(new Sanchai())
+    player1.addFighter(firstPlayerFighter)
+    player2.addFighter(secondPlayerFighter)
 
     console.log(player1, player2);
 
 })
-
