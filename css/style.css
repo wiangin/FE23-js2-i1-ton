@@ -19,3 +19,22 @@
 #form > button {
     margin-top: 2rem;
 }
+
+.gameContainerFlex{
+    display: flex;
+   gap: 5rem;
+}
+
+.card1{
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+}
+.card2{
+    border: 1px solid green;
+    border-radius: 30%;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+}

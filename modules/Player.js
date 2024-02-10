@@ -10,7 +10,7 @@
     }
 
     addFighter(fighter) {
-        return this.#fighter = fighter;
+        // return this.#fighter = fighter;
         if (fighter === 'pikachu') {
             return this.#fighter = new Pikachu();
         }
