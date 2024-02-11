@@ -28,4 +28,6 @@ formEl.addEventListener('submit', event => {
 
     game.createFighterCard(gameContainer);
 
+    formEl.classList.add('hide');
+
 })

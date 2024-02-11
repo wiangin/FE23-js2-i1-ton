@@ -9,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 5rem;
 }
 
 #form {
@@ -37,4 +38,7 @@
     width: 400px;
     height: 400px;
     text-align: center;
+}
+.hide{
+    display: none;
 }
