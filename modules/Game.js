@@ -14,8 +14,6 @@ export default class Game {
     }
 
     createFighterCard(container){
-
-        
         const card1 = document.createElement('div');
         const card2 = document.createElement('div');
 
@@ -23,8 +21,7 @@ export default class Game {
         card2.innerText = this.fight2.getName();
         card1.classList.add('card1');
         card2.classList.add('card2');
-       
-        
+    
         container.append(card1, card2);
       
         

@@ -10,6 +10,10 @@ export default class Pikachu extends Fighter {
         this.#skillMoves = [new Skill('thunderbolt', 30)];
     }
 
+    getSkillMoves(){
+        return this.#skillMoves;
+    }
+
     castSkill(skillName, opponent) {
         const skill = this.#skillMoves.find(s => s.name === skillName)
 
