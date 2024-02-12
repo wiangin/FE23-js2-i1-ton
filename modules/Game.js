@@ -16,6 +16,7 @@ export default class Game {
         card1.innerText = this.#players[0].getPlayerName();
         card1.classList.add('card1');
         health1.innerText = `Health: ${this.#players[0].getFighter().getHealth()}`;
+        
 
         for(const skill1 of this.#players[0].getFighter().getSkillMoves()){
             const skillbtn = document.createElement('button');
@@ -67,8 +68,14 @@ export default class Game {
     }
 
     updateGameInfo(healthEl, fighter) {
-        healthEl.innerText = `Health: ${fighter.getHealth()}`
+        console.log(fighter);
+        healthEl.innerText = `Health: ${fighter.getHealth()}`;
+        console.log(fighter.getHealth());
+        if(fighter.getHealth() <= 0 ){
+            console.log('KO');
+        }
     }
+
 
     disableOpponentsButton() {
         const playerOneBtns = document.querySelectorAll('.playerOneSkillBtn')

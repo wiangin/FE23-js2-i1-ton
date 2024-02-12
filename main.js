@@ -25,7 +25,4 @@ formEl.addEventListener('submit', event => {
     const game = new Game(player1, player2);
 
     game.createGUI(gameContainer);
-
-        formEl.classList.add('hide');
-
 })
