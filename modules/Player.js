@@ -11,12 +11,12 @@
         this.#playersTurn = true;
     }
 
-    toggleTurnToAttack() {
+    togglePlayerTurn() {
         if(!this.#playersTurn) this.#playersTurn = true;
         else this.#playersTurn = false;
     }
 
-    getplayersTurn() {
+    getPlayerTurn() {
         return this.#playersTurn;
     }
 

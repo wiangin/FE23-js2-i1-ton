@@ -8,18 +8,18 @@ export default class Game {
     createGUI(container){
         const card1 = document.createElement('div');
         const card2 = document.createElement('div');
-        const health1 = document.createElement('div');
+        const health1 = document.createElement('p');
         const skillDiv1 = document.createElement('div');
-        const health2 = document.createElement('div');
+        const health2 = document.createElement('p');
         const skillDiv2 = document.createElement('div');
        
         card1.innerText = this.#players[0].getPlayerName();
-        card1.classList.add('card1');
+        card1.classList.add('playerOneCard', `${this.#players[0].getPlayerName()}`, `${this.#players[0].getFighter().getName().toLowerCase()}`);
         health1.innerText = `Health: ${this.#players[0].getFighter().getHealth()}`;
 
         for(const skill1 of this.#players[0].getFighter().getSkillMoves()){
             const skillbtn = document.createElement('button');
-            skillbtn.classList.add('playerOneSkillBtn')
+            skillbtn.classList.add(`skill-btn`)
             skillbtn.innerText = skill1.getSkillName();
             skillDiv1.append(skillbtn);
 
@@ -27,12 +27,12 @@ export default class Game {
         }
         
         card2.innerText = this.#players[1].getPlayerName();
-        card2.classList.add('card2');
+        card2.classList.add('playerTwoCard', `${this.#players[1].getPlayerName()}`, `${this.#players[1].getFighter().getName().toLowerCase()}`);
         health2.innerText = `Health: ${this.#players[1].getFighter().getHealth()}`;
 
         for(const skill of this.#players[1].getFighter().getSkillMoves()){
             const skillbtn = document.createElement('button');
-            skillbtn.classList.add('playerTwoSkillBtn')
+            skillbtn.classList.add(`skill-btn`)
             skillbtn.innerText = skill.getSkillName();
             skillDiv2.append(skillbtn);
 
@@ -52,48 +52,37 @@ export default class Game {
             const playerOneFighter = this.#players[0].getFighter()
             const playerTwoFighter = this.#players[1].getFighter()
 
-            if(playerOneFighter.getSkillMoves().find(skill => skill.getSkillName() === skillBtn.innerText)) {
+            if(event.target.closest('.playerOneCard')) {
                 playerOneFighter.castSkill(skillBtn.innerText, playerTwoFighter)
                 this.updateGameInfo(healthEl, playerTwoFighter)
-                this.disableOpponentsButton()
+                this.disablePlayerButtons(this.#players[0], this.#players[1])
             }
 
-            if(playerTwoFighter.getSkillMoves().find(skill => skill.getSkillName() === skillBtn.innerText)) {
+            if(event.target.closest('.playerTwoCard')) {
                 playerTwoFighter.castSkill(skillBtn.innerText, playerOneFighter)
                 this.updateGameInfo(healthEl, playerOneFighter)
-                this.disableOpponentsButton()
+                this.disablePlayerButtons(this.#players[1], this.#players[0])
             }
         })
     }
 
     updateGameInfo(healthEl, fighter) {
-        healthEl.innerText = `Health: ${fighter.getHealth()}`
+        if(fighter.getHealth() <= 0) healthEl.innerText = 'KO'
+        else healthEl.innerText = `Health: ${fighter.getHealth()}`
     }
 
-    disableOpponentsButton() {
-        const playerOneBtns = document.querySelectorAll('.playerOneSkillBtn')
-        const playerTwoBtns = document.querySelectorAll('.playerTwoSkillBtn')
+    disablePlayerButtons(player, opponent) {
+        const playerBtns = document.querySelectorAll(`.${player.getPlayerName()} > div > button`)
+        const opponentBtns = document.querySelectorAll(`.${opponent.getPlayerName()} > div > button`)
 
-        
+        player.togglePlayerTurn()
+        opponent.togglePlayerTurn()
 
-        // for(const player of this.#players) {
-        //     if(player.getTurnToAttack()) {
+        if(!player.getPlayerTurn() && !opponent.getPlayerTurn()) opponent.togglePlayerTurn()
 
-        //         player.toggleTurnToAttack();
-        //     }
-        // }
+        playerBtns.forEach(btn => !player.getPlayerTurn() ? btn.disabled = true : btn.disabled = false)
+        opponentBtns.forEach(btn => opponent.getPlayerTurn() ? btn.disabled = false : btn.disabled = true)
 
-        // if(this.#players[0].getTurnToAttack()) {
-        //     playerOneBtns.forEach(btn => btn.disabled = true)
-        //     playerTwoBtns.forEach(btn => btn.disabled = false)
-        //     this.#players[0].toggleTurnToAttack()
-        //     this.#players[1].toggleTurnToAttack()
-        // }
-        // else if(this.#players[1].getTurnToAttack()) {
-        //     playerTwoBtns.forEach(btn => btn.disabled = true)
-        //     playerOneBtns.forEach(btn => btn.disabled = false)
-        //     this.#players[1].toggleTurnToAttack()
-        //     this.#players[0].toggleTurnToAttack()
-        // }
     }
+
 }

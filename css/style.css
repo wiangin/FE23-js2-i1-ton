@@ -26,13 +26,13 @@
    gap: 5rem;
 }
 
-.card1{
+.pikachu{
     border: 1px solid black;
     width: 400px;
     height: 400px;
     text-align: center;
 }
-.card2{
+.sanchai{
     border: 1px solid green;
     border-radius: 30%;
     width: 400px;

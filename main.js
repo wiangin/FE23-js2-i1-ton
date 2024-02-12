@@ -1,8 +1,5 @@
-import Pikachu from "./modules/Pikachu.js";
-import Sanchai from "./modules/Sanchai.js";
 import Player from "./modules/Player.js";
 import Game from "./modules/Game.js";
-import Fighter from "./modules/Fighter.js";
 
 const gameContainer = document.querySelector('#gameContainer');
 gameContainer.classList.add('gameContainerFlex');
