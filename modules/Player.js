@@ -9,6 +9,14 @@
         this.#fighter = fighter;
     }
 
+    getFighter() {
+        return this.#fighter;
+    }
+
+    getPlayerName() {
+        return this.#name;
+    }
+
     addFighter(fighter) {
         // return this.#fighter = fighter;
         if (fighter === 'pikachu') {

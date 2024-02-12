@@ -14,4 +14,8 @@ export default class Fighter {
     getHealth(){
         return this.#health;
     }
+
+    receiveDamage(skill) {
+        return this.#health -= skill;
+    }
 }

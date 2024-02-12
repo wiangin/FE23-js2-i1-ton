@@ -7,16 +7,18 @@ export default class Pikachu extends Fighter {
     constructor() {
         super('Pikachu', 500)
         this.#skillMoves = [];
-        this.#skillMoves = [new Skill('thunderbolt', 30)];
+        this.#skillMoves = [new Skill('Thunderbolt', 80), new Skill('Quick Attack', 40), new Skill('Electro Ball', 60), new Skill('Volt Tackle', 100)];
     }
 
     getSkillMoves(){
         return this.#skillMoves;
     }
 
-    castSkill(skillName, opponent) {
-        const skill = this.#skillMoves.find(s => s.name === skillName)
+    castSkill(skillName, opponentFighter) {
+        const skill = this.#skillMoves.find(s => s.getSkillName() === skillName)
+        console.log(skill);
 
-        opponent.health -= skill.damage
+        // opponentFighter.getHealth() -= skill.damage
+        opponentFighter.receiveDamage(skill.getDamage())
     }
 }
