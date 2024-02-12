@@ -9,4 +9,8 @@ export default class Skill {
     getSkillName(){
         return this.#name;
     }
+
+    getDamage() {
+        return this.#damage;
+    }
 }

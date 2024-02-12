@@ -7,6 +7,7 @@ import Fighter from "./modules/Fighter.js";
 const gameContainer = document.querySelector('#gameContainer');
 gameContainer.classList.add('gameContainerFlex');
 const formEl = document.querySelector('#form')
+
 formEl.addEventListener('submit', event => {
     event.preventDefault()
 
@@ -20,13 +21,10 @@ formEl.addEventListener('submit', event => {
 
     player1.addFighter(firstPlayerFighter);
     player2.addFighter(secondPlayerFighter);
-    console.log(player1, player2);
 
-    const game = new Game(
-        player1.addFighter(firstPlayerFighter),
-        player2.addFighter(secondPlayerFighter));
+    const game = new Game(player1, player2);
 
-        game.createFighterCard(gameContainer);
+    game.createGUI(gameContainer);
 
         formEl.classList.add('hide');
 

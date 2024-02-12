@@ -3,10 +3,11 @@ import Skill from "./Skill.js";
 
 export default class Sanchai extends Fighter{
     #skillMoves;
-    constructor(){
+
+    constructor() {
         super("Sanchai", 500)
         this.#skillMoves = [
-            new Skill('low kick', 30),
+            new Skill('Low kick', 30),
             new Skill('High Kick', 50),
             new Skill('Spinning Elbow', 100)];
     }
@@ -15,10 +16,12 @@ export default class Sanchai extends Fighter{
         return this.#skillMoves;
     }
 
-    castSkill(skillName, opponent) {
-        const skill = this.#skillMoves.find(s => s.name === skillName)
+    castSkill(skillName, opponentFighter) {
+        const skill = this.#skillMoves.find(s => s.getSkillName() === skillName)
+        console.log(skill);
         
-        opponent.health -= skill.damage
+        // opponentFighter.getHealth() -= skill.damage
+        opponentFighter.receiveDamage(skill.getDamage())
     }
 
 }
