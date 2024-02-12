@@ -26,8 +26,8 @@ formEl.addEventListener('submit', event => {
         player1.addFighter(firstPlayerFighter),
         player2.addFighter(secondPlayerFighter));
 
-    game.createFighterCard(gameContainer);
+        game.createFighterCard(gameContainer);
 
-    formEl.classList.add('hide');
+        formEl.classList.add('hide');
 
 })

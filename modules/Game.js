@@ -8,7 +8,6 @@ export default class Game {
         this.fight1 = fight1;
         this.fight2 = fight2;
 
-        
     }
 
     addPlayer(players) {
@@ -36,6 +35,12 @@ export default class Game {
             skillDiv1.append(skillbtn);
         }
 
+        card1.addEventListener('click',(event)=>{
+            event.preventDefault();
+       
+        })
+
+        
         
         card2.innerText = this.fight2.getName();
         card2.classList.add('card2');
