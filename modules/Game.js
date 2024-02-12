@@ -18,8 +18,8 @@ export default class Game {
         health1.innerText = `Health: ${this.#players[0].getFighter().getHealth()}`;
 
         for(const skill1 of this.#players[0].getFighter().getSkillMoves()){
-            console.log(skill1.getSkillName());
             const skillbtn = document.createElement('button');
+            skillbtn.classList.add('playerOneSkillBtn')
             skillbtn.innerText = skill1.getSkillName();
             skillDiv1.append(skillbtn);
 
@@ -31,8 +31,8 @@ export default class Game {
         health2.innerText = `Health: ${this.#players[1].getFighter().getHealth()}`;
 
         for(const skill of this.#players[1].getFighter().getSkillMoves()){
-            console.log(skill.getSkillName());
             const skillbtn = document.createElement('button');
+            skillbtn.classList.add('playerTwoSkillBtn')
             skillbtn.innerText = skill.getSkillName();
             skillDiv2.append(skillbtn);
 
@@ -55,16 +55,45 @@ export default class Game {
             if(playerOneFighter.getSkillMoves().find(skill => skill.getSkillName() === skillBtn.innerText)) {
                 playerOneFighter.castSkill(skillBtn.innerText, playerTwoFighter)
                 this.updateGameInfo(healthEl, playerTwoFighter)
+                this.disableOpponentsButton()
             }
 
             if(playerTwoFighter.getSkillMoves().find(skill => skill.getSkillName() === skillBtn.innerText)) {
                 playerTwoFighter.castSkill(skillBtn.innerText, playerOneFighter)
                 this.updateGameInfo(healthEl, playerOneFighter)
+                this.disableOpponentsButton()
             }
         })
     }
 
     updateGameInfo(healthEl, fighter) {
         healthEl.innerText = `Health: ${fighter.getHealth()}`
+    }
+
+    disableOpponentsButton() {
+        const playerOneBtns = document.querySelectorAll('.playerOneSkillBtn')
+        const playerTwoBtns = document.querySelectorAll('.playerTwoSkillBtn')
+
+        
+
+        // for(const player of this.#players) {
+        //     if(player.getTurnToAttack()) {
+
+        //         player.toggleTurnToAttack();
+        //     }
+        // }
+
+        // if(this.#players[0].getTurnToAttack()) {
+        //     playerOneBtns.forEach(btn => btn.disabled = true)
+        //     playerTwoBtns.forEach(btn => btn.disabled = false)
+        //     this.#players[0].toggleTurnToAttack()
+        //     this.#players[1].toggleTurnToAttack()
+        // }
+        // else if(this.#players[1].getTurnToAttack()) {
+        //     playerTwoBtns.forEach(btn => btn.disabled = true)
+        //     playerOneBtns.forEach(btn => btn.disabled = false)
+        //     this.#players[1].toggleTurnToAttack()
+        //     this.#players[0].toggleTurnToAttack()
+        // }
     }
 }

@@ -4,9 +4,20 @@
  export default class Player{
     #name;
     #fighter;
+    #playersTurn;
     constructor(name,fighter){
         this.#name = name;
         this.#fighter = fighter;
+        this.#playersTurn = true;
+    }
+
+    toggleTurnToAttack() {
+        if(!this.#playersTurn) this.#playersTurn = true;
+        else this.#playersTurn = false;
+    }
+
+    getplayersTurn() {
+        return this.#playersTurn;
     }
 
     getFighter() {
@@ -18,7 +29,6 @@
     }
 
     addFighter(fighter) {
-        // return this.#fighter = fighter;
         if (fighter === 'pikachu') {
             return this.#fighter = new Pikachu();
         }
