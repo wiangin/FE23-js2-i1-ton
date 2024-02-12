@@ -20,7 +20,6 @@ export default class Sanchai extends Fighter{
         const skill = this.#skillMoves.find(s => s.getSkillName() === skillName)
         console.log(skill);
         
-        // opponentFighter.getHealth() -= skill.damage
         opponentFighter.receiveDamage(skill.getDamage())
     }
 

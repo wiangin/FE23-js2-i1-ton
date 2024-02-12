@@ -23,7 +23,7 @@ export default class Game {
             skillbtn.innerText = skill1.getSkillName();
             skillDiv1.append(skillbtn);
 
-            this.btnListener(skillbtn)
+            this.btnListener(skillbtn, health2)
         }
         
         card2.innerText = this.#players[1].getPlayerName();
@@ -36,7 +36,7 @@ export default class Game {
             skillbtn.innerText = skill.getSkillName();
             skillDiv2.append(skillbtn);
 
-            this.btnListener(skillbtn)
+            this.btnListener(skillbtn, health1)
         }
         
         card1.append(health1, skillDiv1);
@@ -46,13 +46,25 @@ export default class Game {
 
     }
 
-    btnListener(skillBtn) {
+    btnListener(skillBtn, healthEl) {
         skillBtn.addEventListener('click', event => {
             event.preventDefault()
+            const playerOneFighter = this.#players[0].getFighter()
+            const playerTwoFighter = this.#players[1].getFighter()
 
-            this.#players[0].getFighter().castSkill(skillBtn.innerText, this.#players[1].getFighter())
-            // this.#players[1].getFighter().castSkill(skillBtn.innerText, this.#players[0].getFighter())
+            if(playerOneFighter.getSkillMoves().find(skill => skill.getSkillName() === skillBtn.innerText)) {
+                playerOneFighter.castSkill(skillBtn.innerText, playerTwoFighter)
+                this.updateGameInfo(healthEl, playerTwoFighter)
+            }
 
+            if(playerTwoFighter.getSkillMoves().find(skill => skill.getSkillName() === skillBtn.innerText)) {
+                playerTwoFighter.castSkill(skillBtn.innerText, playerOneFighter)
+                this.updateGameInfo(healthEl, playerOneFighter)
+            }
         })
+    }
+
+    updateGameInfo(healthEl, fighter) {
+        healthEl.innerText = `Health: ${fighter.getHealth()}`
     }
 }
