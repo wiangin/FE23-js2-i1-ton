@@ -5,4 +5,8 @@ export default class Skill {
         this.#name = name;
         this.#damage = damage;
     }
+
+    getSkillName(){
+        return this.#name;
+    }
 }
