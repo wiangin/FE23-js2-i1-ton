@@ -55,24 +55,24 @@ export default class Game {
 
             if(event.target.closest('.playerOneCard')) {
                 playerOneFighter.castSkill(skillBtn.innerText, playerTwoFighter)
-                this.updateGameInfo(healthEl, playerTwoFighter)
+                this.updateGameInfo(healthEl, this.#players[1])
                 this.disablePlayerButtons(this.#players[0], this.#players[1])
             }
 
             if(event.target.closest('.playerTwoCard')) {
                 playerTwoFighter.castSkill(skillBtn.innerText, playerOneFighter)
-                this.updateGameInfo(healthEl, playerOneFighter)
+                this.updateGameInfo(healthEl, this.#players[0])
                 this.disablePlayerButtons(this.#players[1], this.#players[0])
             }
         })
     }
 
-    updateGameInfo(healthEl, fighter) {
-        console.log(fighter);
-        healthEl.innerText = `Health: ${fighter.getHealth()}`;
-        console.log(fighter.getHealth());
-        if(fighter.getHealth() <= 0 ){
-            healthEl.innerText = 'KO';
+    updateGameInfo(healthEl, player) {
+        healthEl.innerText = `Health: ${player.getFighter().getHealth()}`;
+        
+        if(player.getFighter().getHealth() <= 0 ){
+            healthEl.innerText = `Health: 0`;
+            this.displayKO(player)
         }
     }
 
@@ -91,4 +91,8 @@ export default class Game {
 
     }
 
+    displayKO(defeatedPlayer) {
+        const defeatedPlayerEl = document.querySelector(`.${defeatedPlayer.getPlayerName()} > div`)
+        defeatedPlayerEl.innerText = 'KO'
+    }
 }
