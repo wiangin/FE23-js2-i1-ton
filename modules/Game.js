@@ -73,9 +73,9 @@ export default class Game {
         console.log(fighter.getHealth());
         if(fighter.getHealth() <= 0 ){
             console.log('KO');
+            healthEl.innerText = 'KO';
         }
     }
-
 
     disableOpponentsButton() {
         const playerOneBtns = document.querySelectorAll('.playerOneSkillBtn')
