@@ -7,10 +7,10 @@ export default class Sanchai extends Fighter{
     constructor() {
         super("Sanchai", 500)
         this.#skillMoves = [
-            new Skill('Roundhouse Kick', 30),
-            new Skill('Double Knee', 50),
-            new Skill('Spinning Elbow', 100),
-            new Skill('Horse Skull Kick')];
+            new Skill('Roundhouse Kick', 60),
+            new Skill('Double Knee', 80),
+            new Skill('Spinning Elbow', 40),
+            new Skill('Horse Skull Kick', 100)];
     }
 
     getSkillMoves(){
