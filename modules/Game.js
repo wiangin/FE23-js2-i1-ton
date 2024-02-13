@@ -72,7 +72,6 @@ export default class Game {
         healthEl.innerText = `Health: ${fighter.getHealth()}`;
         console.log(fighter.getHealth());
         if(fighter.getHealth() <= 0 ){
-            console.log('KO');
             healthEl.innerText = 'KO';
         }
     }

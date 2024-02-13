@@ -23,7 +23,9 @@
 
 .gameContainerFlex{
     display: flex;
-   gap: 5rem;
+    gap: 5rem;
+    color: white;
+
 }
 
 .pikachu{
@@ -31,14 +33,27 @@
     width: 400px;
     height: 400px;
     text-align: center;
+    background: url('../image/cat-7978173_1920.jpg');
+    background-size: cover;
+    padding: 50px;
 }
+
+
 .sanchai{
     border: 1px solid green;
     border-radius: 30%;
     width: 400px;
     height: 400px;
     text-align: center;
+    background-image: url(../image/Saenchai.jpg);
+    background-size: cover;
+    padding: 50px;
 }
 .hide{
     display: none;
+}
+
+.skill-btn{
+    margin: 20px;
+    padding: 5px;
 }
