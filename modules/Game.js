@@ -78,6 +78,7 @@ export default class Game {
     }
 
     disablePlayerButtons(player, opponent) {
+        
         const playerBtns = document.querySelectorAll(`.${player.getPlayerName()} > div > button`)
         const opponentBtns = document.querySelectorAll(`.${opponent.getPlayerName()} > div > button`)
 
