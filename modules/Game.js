@@ -72,27 +72,46 @@ export default class Game {
         
         if(player.getFighter().getHealth() <= 0 ){
             healthEl.innerText = `Health: 0`;
-            this.displayKO(player)
+            this.displayKO(player);
+            this.restartGame();
         }
     }
 
     disablePlayerButtons(player, opponent) {
         
-        const playerBtns = document.querySelectorAll(`.${player.getPlayerName()} > div > button`)
-        const opponentBtns = document.querySelectorAll(`.${opponent.getPlayerName()} > div > button`)
+        const playerBtns = document.querySelectorAll(`.${player.getPlayerName()} > div > button`);
+        const opponentBtns = document.querySelectorAll(`.${opponent.getPlayerName()} > div > button`);
 
-        player.togglePlayerTurn()
-        opponent.togglePlayerTurn()
+        player.togglePlayerTurn();
+        opponent.togglePlayerTurn();
 
-        if(!player.getPlayerTurn() && !opponent.getPlayerTurn()) opponent.togglePlayerTurn()
+        if(!player.getPlayerTurn() && !opponent.getPlayerTurn()) opponent.togglePlayerTurn();
 
-        playerBtns.forEach(btn => !player.getPlayerTurn() ? btn.disabled = true : btn.disabled = false)
-        opponentBtns.forEach(btn => opponent.getPlayerTurn() ? btn.disabled = false : btn.disabled = true)
+        playerBtns.forEach(btn => !player.getPlayerTurn() ? btn.disabled = true : btn.disabled = false);
+        opponentBtns.forEach(btn => opponent.getPlayerTurn() ? btn.disabled = false : btn.disabled = true);
 
     }
 
     displayKO(defeatedPlayer) {
         const defeatedPlayerEl = document.querySelector(`.${defeatedPlayer.getPlayerName()} > div`)
-        defeatedPlayerEl.innerText = 'KO'
+        defeatedPlayerEl.innerText = 'KO';
+    }
+
+    restartGame(){
+        const mainContainerDiv = document.querySelector('#mainContainer');
+        const restartBtn = document.createElement('button');
+        
+        restartBtn.classList.add('restartBtnStyle');
+        restartBtn.innerText = 'Restart';
+        restartBtn.addEventListener('click', event =>{
+           
+            const formEl = document.querySelector('#form');
+            const gameContainer = document.querySelector('#gameContainer');
+            gameContainer.innerHTML = '';
+            formEl.classList.remove('hide');
+            restartBtn.remove();
+        })
+
+        mainContainerDiv.append(restartBtn);
     }
 }
