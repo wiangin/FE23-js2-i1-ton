@@ -1,12 +1,11 @@
 import Player from "./modules/Player.js";
 import Game from "./modules/Game.js";
 
-const gameContainer = document.querySelector('#gameContainer');
-gameContainer.classList.add('gameContainerFlex');
 const formEl = document.querySelector('#form')
 
 formEl.addEventListener('submit', event => {
     event.preventDefault()
+    const gameContainer = document.querySelector('#gameContainer');
 
     const firstPlayerInput = document.querySelector('#player1').value
     const secondPlayerInput = document.querySelector('#player2').value
@@ -20,6 +19,8 @@ formEl.addEventListener('submit', event => {
     player2.addFighter(secondPlayerFighter);
 
     const game = new Game(player1, player2);
+
+    formEl.classList.add('hide')
 
     game.createGUI(gameContainer);
 })

@@ -44,7 +44,7 @@ export default class Game {
         card2.append( health2, skillDiv2);
         container.append(card1, card2);
         
-
+        
     }
 
     btnListener(skillBtn, healthEl) {

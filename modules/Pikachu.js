@@ -5,7 +5,7 @@ export default class Pikachu extends Fighter {
     #skillMoves;
 
     constructor() {
-        super('Pikachu', 500)
+        super('Pikachu', 620)
         this.#skillMoves = [new Skill('Thunderbolt', 80), new Skill('Quick Attack', 40), new Skill('Tackle', 60), new Skill('Thunder', 100)];
     }
 
