@@ -19,6 +19,7 @@
 
 #form > button {
     margin-top: 2rem;
+    padding: 5px;
 }
 
 .gameContainerFlex{
